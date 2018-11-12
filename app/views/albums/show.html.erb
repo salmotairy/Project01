@@ -15,3 +15,13 @@ Location: <%= @album.location%>
   <%= link_to "Delete Album", album_path(@album), method: :delete %>
 
 </div>
+
+<%= render partial: 'photos/form' %>
+
+<h2>All Photos in this Album</h2>
+
+<% @album.photos.each do |photo| %>
+  <div class="photo">
+<%= cl_image_tag photo.image %>
+  </div>
+<% end %>

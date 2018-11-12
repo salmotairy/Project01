@@ -1,5 +1,9 @@
 class ImageUploader < CarrierWave::Uploader::Base
   include Cloudinary::CarrierWave
+
+  def filename
+    "#{model.id}-#{original_filename}" if original_filename.present?
+  end
 end
 
 # class ImageUploader < CarrierWave::Uploader::Base

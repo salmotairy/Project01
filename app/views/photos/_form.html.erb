@@ -1,0 +1,14 @@
+<%= form_for Photo.new do |form| %>
+<div>
+  Image: <%= form.file_field :image %>
+</div>
+
+<div>
+    <%= hidden_field_tag "photo[album_id]", params[:id] %>
+</div>
+
+<div>
+
+<%= form.submit %>
+</div>
+<% end  %>

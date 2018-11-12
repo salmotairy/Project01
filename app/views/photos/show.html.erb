@@ -1,0 +1,31 @@
+<h2>
+<%= @photo.image.filename%>
+</h2>
+
+<p>
+    <%= cl_image_tag @photo.image %>
+</p>
+
+<p>
+Location: <%#= @album.location%>
+</p>
+
+ <div class="controls">
+  <%= link_to "Edit Photo", edit_photo_path(@photo) %>
+  <%= link_to "Delete Photo", album_path(@photo), method: :delete %>
+
+</div>
+
+<h2>All Photos in this Album</h2>
+
+<!--
+<%# cl_image_tag @album.image %>
+<%# @photos.each do |photo| %>
+  <div class="photo">
+    <h3>
+      <%# photo.title %>
+    </h3>
+    <%# link_to "See more", photo_path(photo) %>
+  </div>
+<%# end %>
+-->
