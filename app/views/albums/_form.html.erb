@@ -1,0 +1,13 @@
+<%= form_for @album do |form| %>
+<div>
+Name: <%= form.text_field :name %>
+</div>
+<div>
+Url to Key Photo: <%= form.text_field :key_phot %>
+</div>
+<div>
+<div>
+Location: <%= form.text_field :location %>
+</div>
+<%= form.submit %>
+<% end  %>
