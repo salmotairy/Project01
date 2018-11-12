@@ -3,15 +3,18 @@
 Name: <%= form.text_field :name %>
 </div>
 <div>
-  <%= f.label "Image" %>
-  <%= f.file_field :image %>
+Location: <%= form.text_field :location %>
 </div>
+
+<div>
+  Image: <%= form.file_field :image %>
+</div>
+<strong><p>or</p></strong>
 <div>
 Url to Key Photo: <%= form.text_field :key_photo %>
 </div>
+
 <div>
-<div>
-Location: <%= form.text_field :location %>
-</div>
+
 <%= form.submit %>
 <% end  %>
