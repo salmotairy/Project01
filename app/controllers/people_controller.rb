@@ -1,4 +1,6 @@
 class PeopleController < ApplicationController
+  before_action :authenticate_user!, only: [:index, :show, :new, :create, :edit, :update, :destroy]
+
   def index
     @people = Person.all
   end

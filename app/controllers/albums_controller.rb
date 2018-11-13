@@ -1,5 +1,10 @@
 class AlbumsController < ApplicationController
+  before_action :authenticate_user!, only: [:index, :show, :new, :create, :edit, :update, :destroy]
+
   def home
+    if current_user
+      redirect_to albums_path
+    end
   end
 
   def index

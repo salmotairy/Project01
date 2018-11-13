@@ -1,4 +1,6 @@
 class PhotosController < ApplicationController
+  before_action :authenticate_user!, only: [:index, :show, :new, :create, :edit, :update, :destroy]
+
   def index
     @Photos = Photo.all
   end
@@ -13,7 +15,8 @@ class PhotosController < ApplicationController
 
   def create
     photo = Photo.create photo_params
-    redirect_to photo_path(photo)
+    # redirect_to album_path(photo)
+    redirect_back fallback_location: root_path
   end
 
   def edit
