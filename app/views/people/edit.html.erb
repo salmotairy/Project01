@@ -1,2 +1,4 @@
-<h1>People#edit</h1>
-<p>Find me in app/views/people/edit.html.erb</p>
+<h2>Edit This Person</h2>
+
+<%= render partial: 'form', 
+    :locals => {configuration: @configuration, submit_text: "Modify"} %>

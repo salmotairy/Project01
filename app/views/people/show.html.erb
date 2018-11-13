@@ -1,2 +1,12 @@
-<h1>People#show</h1>
-<p>Find me in app/views/people/show.html.erb</p>
+<h2>
+<%= @person.name%> was in these photos  
+</h2>
+<ul>
+
+<% @person.photos.each do |photo| %>
+  <li>
+  <%=link_to cl_image_tag(photo.image), photo_path(photo) =%>
+  </li>
+<% end %>
+
+</ul>

@@ -13,6 +13,7 @@ class AlbumsController < ApplicationController
 
   def show
     @album = Album.find_by(id: params[:id])
+    @photo = Photo.new
   end
 
   def new

@@ -14,8 +14,19 @@ class PeopleController < ApplicationController
   end
 
   def create
-    person = Person.create person_params
-    redirect_to person_path(person)
+    if params[:person][:photo_id]
+      photo = Photo.find_by(id: params[:person][:photo_id])
+      names = params[:person][:name].split(", ")
+      names.each do |name|
+        unless photo.people.find_by(name: name)
+          photo.people << Person.find_or_create_by(name: name)
+        end
+      end
+      redirect_to photo_path(photo)
+    else
+      person = Person.find_or_create_by person_params
+      redirect_to person_path(person)
+    end
   end
 
   def edit
@@ -37,6 +48,6 @@ class PeopleController < ApplicationController
   private
 
   def person_params
-    params.require(:person).permit(:first_name, :last_name, :album_id)
+    params.require(:person).permit(:name)
   end
 end

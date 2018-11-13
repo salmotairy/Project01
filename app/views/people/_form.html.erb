@@ -1,0 +1,14 @@
+<%= form_for @person do |form| %>
+<div>
+  Names: <%= form.text_field :name %>
+</div>
+
+<div>
+    <%= hidden_field_tag "person[photo_id]", params[:id] %>
+</div>
+
+<div>
+<br>
+<%= form.submit "Add People"  %>
+</div>
+<% end  %>

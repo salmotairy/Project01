@@ -2,11 +2,12 @@ class PhotosController < ApplicationController
   before_action :authenticate_user!, only: [:index, :show, :new, :create, :edit, :update, :destroy]
 
   def index
-    @Photos = Photo.all
+    @photos = Photo.all
   end
 
   def show
     @photo = Photo.find_by(id: params[:id])
+    @person = Person.new
   end
 
   def new

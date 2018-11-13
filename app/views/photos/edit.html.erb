@@ -1,2 +1,4 @@
 <h2>Change This Photo</h2>
-<%= render partial: "form" %>
+
+<%= render partial: 'form', 
+    :locals => {configuration: @configuration, submit_text: "Change Photo"} %>

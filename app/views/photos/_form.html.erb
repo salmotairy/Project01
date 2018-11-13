@@ -1,8 +1,10 @@
-<%= form_for Photo.new do |form| %>
+<%= form_for @photo  do |form| %>
 <div>
   Image: <%= form.file_field :image %>
 </div>
-
+<div>
+<%= form.collection_select :album_id, Album.all, :id, :name %>
+</div>
 <div>
     <%= hidden_field_tag "photo[album_id]", params[:id] %>
 </div>
